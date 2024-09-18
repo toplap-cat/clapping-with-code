@@ -1,0 +1,14 @@
+-- Punctual (v0.5) version of Steve Reich's Clapping Music
+-- by Glen Fraser
+-- (run in https://dktr0.github.io/Punctual/index-0.5.html)
+z << 0;
+claps << 0.5 * [1,z,1,z,1,z,0,z,1,z,1,z,0,z,1,z,0,z,1,z,1,z,0,z];
+base << seq claps;
+i << slow 8 $ floor(beat) % 12;
+offset << early (i/12) $ seq claps;
+
+slow 4 $
+  rect [(i + 0.5 - 6) / 6, -1] 0.1
+  + (fit 1 $ (prox [-0.9,0.5] ** 8 *  base + prox [0.9,0.5] ** 8 * offset)) >> add; 
+
+zoom 0.9 $ move [0,-0.2] $ fb fxy * 0.8 >> add;
