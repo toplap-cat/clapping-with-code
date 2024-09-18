@@ -1,0 +1,9 @@
+// implementation of Steve Reich's "Clapping Music" in Mercury, by Timo Hoogland
+
+set tempo 170  
+
+list ptn duplicate([1 1 1 0 1 1 0 1 0 1 1 0] 8)
+list ptn2 join(ptn rot(ptn -1) rot(ptn -2) rot(ptn -3) rot(ptn -4) rot(ptn -5) rot(ptn -6) rot(ptn -7) rot(ptn -8) rot(ptn -9) rot(ptn -10) rot(ptn -11))
+
+new sample clap_909 time(1/8) play(ptn) pan(-0.5)
+new sample clap_808 time(1/8) play(ptn2) pan(0.5)

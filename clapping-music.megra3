@@ -1,0 +1,6 @@
+;; implementation of Steve Reich's "Clapping Music" in Mégra, by Niklas Reppel
+
+(sx 'clapping #t
+  (xspread
+    (every :n (mul 8 12) (skip 1))
+    (loop 'ry "hc hc hc ~ hc hc ~ hc ~ hc hc ~")))
