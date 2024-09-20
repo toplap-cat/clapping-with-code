@@ -10,11 +10,10 @@ b.p(1, [
   Plazy({ clapPattern.rotate(rotAmt) }) <> (pan: 0.7)
 ].par);
 
-Tdef(\main, {
-  12.do{ arg i;
-    rotAmt = i.debug("rotAmt");
+b.tp(\main, { loop {
+  12.do{ |i|
+    rotAmt = i;
     8.wait;
   };
-  b.clear(1, 0);
-}).play(b.barClock, quant: 1)
+}});
 )
