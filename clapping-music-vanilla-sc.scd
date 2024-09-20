@@ -1,4 +1,4 @@
-// implementation of Steve Reich's "Clapping Music" in vanilla SuperCollider, by Lluis Naceta
+// implementation of Steve Reich's "Clapping Music" in vanilla SuperCollider, by Lluis Nacenta
 
 (
 SynthDef(\pols, {
