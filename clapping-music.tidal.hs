@@ -27,3 +27,8 @@ do
   let repeatEvery n xs = xs >>= replicate n
   let iterEvery n m p = cat $ flap (map (rotL . (% m)) (repeatEvery n [0..(m-1)])) p
   d1 $ jux (iterEvery 8 12) "808:3!3 ~ 808:3!2 ~ 808:3 ~ 808:3!2 ~"
+
+
+--Version 5 by Tim Cowlishaw: Thinking from the other direction, we use Niklas's accelarated, succinct version
+-- and simply stretch it by repeating each cycle 8 times:
+d1 $ repeatCycles 8 $ jux (iter 12) $ s "808:3!3 ~ 808:3!2 ~ 808:3 ~ 803:3!2 ~"
