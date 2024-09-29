@@ -22,3 +22,8 @@ s(p).pan(1).stack(
   s(p).iter(12).repeatCycles(8).pan(0)
 )
 
+// --------------------------------------------------
+// which @froos elegantly reduces even further:
+
+let p = "cp cp cp ~ cp cp ~ cp ~ cp cp ~"
+s(p).jux(x=>x.iter(12).repeatCycles(8))
