@@ -23,7 +23,7 @@ s(p).pan(1).stack(
 )
 
 // --------------------------------------------------
-// which @froos elegantly reduces even further:
+// which Felix Roos (@froos) elegantly reduces even further:
 
 let p = "cp cp cp ~ cp cp ~ cp ~ cp cp ~"
 s(p).jux(x=>x.iter(12).repeatCycles(8))
