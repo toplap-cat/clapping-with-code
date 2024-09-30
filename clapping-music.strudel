@@ -1,16 +1,29 @@
 // "Clapping Music (Steve Reich)" @by Prince Lucija
 
 setcpm(220)
-
 $: s(`<  [cp cp cp ~ cp cp ~ cp ~ cp cp ~]@6 >`)
-
     .gain(rand.range(.6,.9))
     .pan(.2)
 
-
 $: s(`< [[cp cp cp ~ cp cp ~ cp ~ cp cp ~]!7 ]@42
          [cp cp cp ~ cp cp ~ cp ~ cp cp  ]@5.5 >`)
-
     .bank("RolandMC303")
     .gain(rand.range(.6,.9))
     .pan(.8)
+
+// ---------------------------------------------------
+// a different version using .iter() and .repeatCycles()
+// "Clapping Music (Steve Reich) v2" @by Prince Lucija 
+
+let p = "cp cp cp ~ cp cp ~ cp ~ cp cp ~"
+// let p = "cp(5,7,2)@7 cp(3,5,3)@5" // same thing
+
+s(p).pan(1).stack(
+  s(p).iter(12).repeatCycles(8).pan(0)
+)
+
+// --------------------------------------------------
+// which Felix Roos (@froos) elegantly reduces even further:
+
+let p = "cp cp cp ~ cp cp ~ cp ~ cp cp ~"
+s(p).jux(x=>x.iter(12).repeatCycles(8))
